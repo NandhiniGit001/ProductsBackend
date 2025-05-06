@@ -23,7 +23,7 @@ namespace Products.API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<ArticleDto>>> GetArticles(
           [FromQuery] string? sort = null,
-          [FromQuery] bool? expenseThan2PerLiter = null)
+          [FromQuery] bool? expansiveThan2PerLiter = null)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Products.API.Controllers
                     });
                 }
 
-                var products = await _productService.GetAllArticlesAsync(sort, expenseThan2PerLiter ?? false);
+                var products = await _productService.GetAllArticlesAsync(sort, expansiveThan2PerLiter ?? false);
 
                 if (products == null || !products.Any())
                 {

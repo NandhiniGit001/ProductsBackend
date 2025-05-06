@@ -28,7 +28,7 @@ describe('ProductService', () => {
       expect(products).toEqual(mockProducts);
     });
 
-    const req = httpMock.expectOne((request) => request.url === apiUrl && request.params.has('sort') && request.params.has('cheaperThan2PerLiter'));
+    const req = httpMock.expectOne((request) => request.url === apiUrl && request.params.has('sort') && request.params.has('expansiveThan2PerLiter'));
     expect(req.request.method).toBe('GET');
     req.flush(mockProducts);
   });
