@@ -1,0 +1,91 @@
+.toolbar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  
+    &.detail .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 140px;
+      padding: 0.5rem;
+      background: #f7f7f7;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  
+      img {
+        max-width: 100px;
+        height: 120px;
+      }
+  
+      .info {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+    }
+  
+    &.bottle .bottle-img {
+      img {
+        max-width: 100px;
+        height: 200px;
+        padding: 2rem;
+      }
+    }
+    
+    .products.bottle .bottle-img {
+        img {
+          width: 80px;  
+          height: 120px; 
+          object-fit: cover; 
+          padding: 0.25rem;
+        }
+      }
+  }
+  
+  @media (max-width: 500px) {
+    .products.detail .product-card{
+      width: 100%;
+      flex-direction: row;
+
+      .info{
+        flex:2;
+        text-align: right;
+        padding-right: 1rem;
+      }
+      .image{
+          flex:1;
+          text-align: center;
+      }
+    }
+    .products.bottle .bottle-img img {
+      max-width: 60px;
+      height: 100px;
+      padding: 0.8em;
+    }
+}
+  

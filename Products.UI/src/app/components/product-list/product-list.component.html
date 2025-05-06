@@ -1,0 +1,29 @@
+<div class="toolbar">
+    <button (click)="toggleView()">
+      View: {{ viewMode === 'detail' ? 'Detail' : 'Bottle' }}
+    </button>
+    <button (click)="toggleSort()">Sort Price: {{ sortOrder }}</button>
+    <button (click)="toggleFilter()">
+      {{ filterExpensive ? 'Above 2€/L' : 'Show All' }}
+    </button>
+  </div>
+  
+  <div class="products" [ngClass]="viewMode">
+      <ng-container *ngFor="let article of articles">
+        <div class="product-card" *ngIf="viewMode === 'detail'">
+          <div class="image">
+          <img [src]="article.image" alt="beer" />
+          </div>
+          <div class="info">
+            <strong>{{ article.productName }}</strong>
+            <div>{{ article.price }} Euro</div>
+            <div>{{ article.shortDescription }}</div>
+            <div>{{ article.pricePerUnitText }}</div>
+          </div>
+        </div>
+  
+        <div class="bottle-img" *ngIf="viewMode === 'bottle'">
+          <img [src]="article.image" alt="beer bottle" />
+        </div>
+      </ng-container>
+  </div>
