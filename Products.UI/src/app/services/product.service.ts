@@ -19,8 +19,8 @@ export class ProductService {
   getProducts(sort?: 'asc' | 'desc', filterExpensive?: boolean): Observable<IArticle[]> {
     let params = new HttpParams();
     if (sort) params = params.set('sort', sort);
-    if (filterExpensive) params = params.set('cheaperThan2PerLiter', 'true');
+    if (filterExpensive) params = params.set('expansiveThan2PerLiter', 'true');
     return this._http.get<IArticle[]>(this.apiUrl, { params });
   }
-  
+
 }
